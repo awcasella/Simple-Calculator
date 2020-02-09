@@ -64,7 +64,7 @@ To make it executable on linux, type this:
 
 # Built With
 
-- [NetBeans](https://netbeans.org): Fits the pieces together.
+- [NetBeans](https://netbeans.org): Quickly and easily develop desktop, mobile, and web applications with Java, JavaScript, HTML5, PHP, C/C++ and more.
 
 # References
 
