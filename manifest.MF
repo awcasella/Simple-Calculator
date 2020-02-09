@@ -1,0 +1,3 @@
+Main-Class: src.Calculator
+Name: src/Calculator.class
+Java-Bean: True
