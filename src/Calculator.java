@@ -229,93 +229,42 @@ public class Calculator extends JFrame{
         );
         botoes.add(b0);
         
-        igual.addActionListener(
-            new ActionListener(){
-                public void actionPerformed(ActionEvent evento){
-                    String texto = tela.getText()+";";
-                    String[] vet = new String[100];
-                    int ini = 0, fim = 0, cont = 0, tam;
-                    flag = true;
-                    if (texto.startsWith("*") || texto.startsWith("/") || texto.endsWith("+;") || texto.endsWith("-;") || texto.endsWith("*;") || texto.endsWith("/;")){
-                        tela.setText("Sintax Error!");
-                    }else{
-                        for (int n = 1; n < texto.length(); n++){
-                            if(texto.substring(n, n+1).equals("*")){
-                                fim = n;
-                                vet[cont] = texto.substring(ini, fim);
-                                vet[cont+1] = "*";
-                                cont += 2;
-                                ini = n+1;
-                            }else if(texto.substring(n, n+1).equals("/")){
-                                fim = n;
-                                vet[cont] = texto.substring(ini, fim);
-                                vet[cont+1] = "/";
-                                cont += 2;
-                                ini = n+1;
-                            }else if(texto.substring(n, n+1).equals("+")){
-                                fim = n;
-                                vet[cont] = texto.substring(ini, fim);
-                                cont++;
-                                ini = n;
-                            }else if(texto.substring(n, n+1).equals("-")){
-                                fim = n;
-                                vet[cont] = texto.substring(ini, fim);
-                                cont++;
-                                ini = n;
-                            }else if(texto.substring(n, n+1).equals(";")){
-                                fim = n;
-                                vet[cont] = texto.substring(ini, fim);
-                                cont++;
-                                break;
-                            }
-                        }
+		igual.addActionListener(
+			new ActionListener(){
+				public void actionPerformed(ActionEvent evento){
+					ScriptEngineManager mgr = new ScriptEngineManager();
+					ScriptEngine engine = mgr.getEngineByName("JavaScript");
 
-                        vet[cont] = ";";
-                        tam = cont;
+					String foo = tela.getText();
+					String res;
+					try{
+						res = engine.eval(foo).toString();
+					}catch(Exception e){
+						res = "Erro de sintaxe!";
+					}
 
-                        for(int n = 0; n < tam; n++){
-                            if(vet[n].equals("*")){
-                                vet[n-1] = "" + Double.parseDouble(vet[n-1])*Double.parseDouble(vet[n+1]);
-                                vet[n] = "+";
-                                vet[n+1] = "+";
-                            }else if(vet[n].equals("/")){
-                                vet[n-1] = "" + Double.parseDouble(vet[n-1])/Double.parseDouble(vet[n+1]);
-                                vet[n] = "+";
-                                vet[n+1] = "+";
-                            }else if(vet[n].equals("fim")){
-                                break;
-                            }
-                        }
+					flag = true;
 
-                        // Ja tendo o vetor soh com + e -
-                        double res = 0;
-                        for (int n = 0; ; n++){
-                            if(vet[n].equals(";")){
-                                break;
-                            }else if(!vet[n].equals("+") && !vet[n].equals("-") && !vet[n].equals(";")){
-                                res += Double.parseDouble(vet[n]);
-                            }
-                        }
-                        tela.setText(""+res);
-                    }
-                }
-            }
-        );
-        botoes.add(igual);
-        
-        div.addActionListener(
-        	new ActionListener(){
-        		public void actionPerformed( ActionEvent evento ){
-                    flag = false;
-        			expressao = tela.getText() + div.getText();
-        			tela.setText(expressao);
-        		}
-        	}
-        );
-        botoes.add(div);
+					tela.setText(""+res);
 
-    	JPanel painel = new JPanel();
-    	//painel.setLayout(new BorderLayout());
+				}
+			}
+		);
+		botoes.add(igual);
+
+		div.addActionListener(
+			new ActionListener(){
+				public void actionPerformed( ActionEvent evento ){
+					flag = false;
+					expressao = tela.getText() + div.getText();
+					tela.setText(expressao);
+				}
+			}
+		);
+		botoes.add(div);
+
+		JPanel painel = new JPanel();
+		//painel.setLayout(new BorderLayout());
     	painel.setLayout(null);
     	tela.setBounds(5, 0, 300, 50);
     	/*painel.add(BorderLayout.NORTH, tela);
@@ -339,3 +288,4 @@ public class Calculator extends JFrame{
         tela.setVisible(true);
     }
 }
+
