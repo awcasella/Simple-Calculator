@@ -1,4 +1,4 @@
-# Java Calculator
+# Simple Calculator
 Simple calculator built using Java.
 
 <p align="center">
@@ -19,9 +19,9 @@ To run this project, you'll need to have a basic environment to run a Java App.
 
 Cloning the Repository
 
-    $ git clone https://github.com/awcasella/Calculator-Java.git
+    $ git clone https://github.com/awcasella/Simple-Calculator.git
 
-    $ cd Calculator-Java
+    $ cd Simple-Calculator
   
 Installation of and Java
 
