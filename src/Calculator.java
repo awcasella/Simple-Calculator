@@ -1,6 +1,6 @@
 // jar cfm app.jar manifest.MF src
 // java -jar app.jar
-//package src; // Uncomment to make .jar
+package src; // Uncomment to make .jar
 
 import javax.swing.*;
 import java.awt.event.*;
