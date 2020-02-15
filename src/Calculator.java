@@ -34,7 +34,7 @@ public class Calculator extends JFrame{
 		ponto = new JButton(".");
 		//abre = new JButton("(");
 		//fecha = new JButton(")");
-		tela = new JLabel("");
+		tela = new JLabel("", SwingConstants.RIGHT);
 		igual = new JButton("=");
 
 		JPanel botoes = new JPanel();
