@@ -283,7 +283,7 @@ public class Calculator extends JFrame{
 		JPanel painel = new JPanel();
 		//painel.setLayout(new BorderLayout());
     	painel.setLayout(null);
-    	tela.setBounds(5, 0, 300, 50);
+    	tela.setBounds(5, 5, 300, 50);
     	/*painel.add(BorderLayout.NORTH, tela);
     	painel.add(BorderLayout.CENTER, botoes);*/
     	painel.add(tela);
@@ -298,6 +298,23 @@ public class Calculator extends JFrame{
         this.setLocation(300, 200);
         this.setSize(310, 250);
         this.setResizable(false);
+        Font labelFont = tela.getFont();
+		String labelText = tela.getText();
+
+		int stringWidth = tela.getFontMetrics(labelFont).stringWidth(labelText);
+		int componentWidth = tela.getWidth();
+
+		// Find out how much the font can grow in width.
+		double widthRatio = (double)componentWidth / (double)stringWidth;
+
+		int newFontSize = (int)(labelFont.getSize() * widthRatio);
+		int componentHeight = tela.getHeight();
+
+		// Pick a new font size so it will not be larger than the height of tela.
+		int fontSizeToUse = Math.min(newFontSize, componentHeight);
+
+		// Set the tela's font size to the newly determined size.
+		tela.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
 
 	}
     public static void main(String[] args) {
