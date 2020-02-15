@@ -37,6 +37,8 @@ After that, go to src directory and compile the main class
     
     $ java Calculator
 
+**Making a standalone application**
+
 Change to the upper directory and create a manifest.MF document:
 
     $ cd ..
