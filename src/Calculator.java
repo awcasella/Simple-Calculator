@@ -1,6 +1,6 @@
 // jar cfm app.jar manifest.MF src
 // java -jar app.jar
-package src; // Uncomment to make .jar
+//package src; // Uncomment to make .jar
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -88,8 +88,13 @@ public class Calculator extends JFrame{
         	new ActionListener(){
         		public void actionPerformed( ActionEvent evento ){
                     flag = false;
-        			expressao = tela.getText() + mais.getText();
-        			tela.setText(expressao);
+
+					if (tela.getText().endsWith("*") || tela.getText().endsWith("/") || tela.getText().endsWith("-") || tela.getText().endsWith("+")) {
+						expressao = tela.getText().substring(0, tela.getText().length()-1) + mais.getText();
+					}else{
+						expressao = tela.getText() + mais.getText();
+					}
+					tela.setText(expressao);
         		}
         	}
         );
@@ -141,7 +146,11 @@ public class Calculator extends JFrame{
         	new ActionListener(){
         		public void actionPerformed( ActionEvent evento ){
                     flag = false;
-        			expressao = tela.getText() + menos.getText();
+        			if (tela.getText().endsWith("-") || tela.getText().endsWith("+")) {
+						expressao = tela.getText().substring(0, tela.getText().length()-1) + menos.getText();
+					}else{
+						expressao = tela.getText() + menos.getText();
+					}
         			tela.setText(expressao);
         		}
         	}
@@ -194,7 +203,11 @@ public class Calculator extends JFrame{
         	new ActionListener(){
         		public void actionPerformed( ActionEvent evento ){
                     flag = false;
-        			expressao = tela.getText() + vezes.getText();
+        			if (tela.getText().endsWith("*") || tela.getText().endsWith("/") || tela.getText().endsWith("-") || tela.getText().endsWith("+")) {
+						expressao = tela.getText().substring(0, tela.getText().length()-1) + vezes.getText();
+					}else{
+						expressao = tela.getText() + vezes.getText();
+					}
         			tela.setText(expressao);
         		}
         	}
@@ -256,7 +269,11 @@ public class Calculator extends JFrame{
 			new ActionListener(){
 				public void actionPerformed( ActionEvent evento ){
 					flag = false;
-					expressao = tela.getText() + div.getText();
+					if (tela.getText().endsWith("*") || tela.getText().endsWith("/") || tela.getText().endsWith("-") || tela.getText().endsWith("+")) {
+						expressao = tela.getText().substring(0, tela.getText().length()-1) + div.getText();
+					}else{
+						expressao = tela.getText() + div.getText();
+					}
 					tela.setText(expressao);
 				}
 			}
