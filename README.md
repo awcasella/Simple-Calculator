@@ -29,13 +29,21 @@ Installation of and Java
 
 **Run project**
 
-After that, go to src directory and compile the main class
-
-    $ cd src/
+Compile the main class
     
     $ javac Calculator.java
+
+Run the application
     
     $ java Calculator
+
+After that, build the package
+
+    $ javac -d . Calculator.java
+
+Run the application from the package
+    
+    $ java src.Calculator
 
 **Making a standalone application**
 
