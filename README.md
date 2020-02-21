@@ -47,9 +47,7 @@ Run the application from the package
 
 **Making a standalone application**
 
-Change to the upper directory and create a manifest.MF document:
-
-    $ cd ..
+Create a manifest.MF document:
     
     $ touch manifest.MF
 
@@ -59,7 +57,7 @@ Open the document, and write this:
     Name: src/Calculator.class
     Java-Bean: True
 
-To make an executable like, type this:
+Then just save the document. To make an jar, type this:
 
     $ jar cfm app.jar manifest.MF src
 
