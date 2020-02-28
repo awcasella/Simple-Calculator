@@ -15,17 +15,17 @@ This project's goal is to create a simple calculator app on which the user can p
 
 To run this project, you'll need to have a basic environment to run a Java App.
 
-**Installing**
-
-Cloning the Repository
+**Cloning the Repository**
 
     $ git clone https://github.com/awcasella/Simple-Calculator.git
 
     $ cd Simple-Calculator
   
-Installation of and Java
+**Java Installation**
 
-- ORACLE Java installation tutorial can be found [here](https://www.edivaldobrito.com.br/oracle-java-no-ubuntu-18-04-lts/).
+    $ sudo apt install default-jre
+    
+    $ sudo apt install default-jdk
 
 **Run project**
 
